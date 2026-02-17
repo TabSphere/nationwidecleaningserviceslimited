@@ -1,0 +1,146 @@
+---
+const founders = [
+  {
+    name: 'Frederick Oppong Tabiri',
+    title: 'Founder & Managing Director',
+    description: 'Frederick leads the strategic direction, systems, and brand development of Nationwide Cleaning Services Limited. He oversees operations, digital visibility, and long-term growth to ensure consistent, professional service delivery across Scotland.',
+    image: '/images/team/frederick-oppong-tabiri.jpg',
+    placeholder: '/images/team/placeholder.jpg'
+  },
+  {
+    name: 'John Williams Ampah',
+    title: 'Founder & Client Services Director',
+    description: 'John oversees client relationships and service delivery, ensuring every customer receives dependable, high-quality cleaning support. He leads our commitment to reliability, professionalism, and customer satisfaction.',
+    image: '/images/team/john-williams-ampah.jpg',
+    placeholder: '/images/team/placeholder.jpg'
+  }
+];
+
+const team = [
+  {
+    name: 'Vincent Marfo Peprah',
+    title: 'Operations & Growth Advisor',
+    description: 'Vincent supports operational structure and growth strategy, helping streamline processes and guide sustainable expansion as the company scales across Stirling and surrounding areas.',
+    image: '/images/team/vincent-marfo-peprah.jpg',
+    placeholder: '/images/team/placeholder.jpg'
+  },
+  {
+    name: 'Priscilla Takyi',
+    title: 'Recruitment & Support Coordinator',
+    description: 'Priscilla assists with recruitment coordination and internal support, helping build a reliable, well-organised team that maintains our high standards of service delivery.',
+    image: '/images/team/priscilla-takyi.jpg',
+    placeholder: '/images/team/placeholder.jpg'
+  },
+  {
+    name: 'Maame Araa Steele-Dadzie',
+    title: 'Community Engagement Coordinator',
+    description: 'Maame leads community outreach and engagement initiatives, strengthening local relationships and supporting brand visibility across Stirling and neighbouring communities.',
+    image: '/images/team/maame-araa-steele-dadzie.jpg',
+    placeholder: '/images/team/placeholder.jpg'
+  }
+];
+---
+
+<section class="py-20 bg-gray-50 fade-in-section" id="team">
+  <div class="container mx-auto px-4 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-navy mb-4">Leadership & Growth Team</h2>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+        Meet the team behind Nationwide Cleaning Services Limited. Our leadership and support team are committed to delivering professional, reliable cleaning services across Stirling and surrounding areas.
+      </p>
+    </div>
+
+    <!-- Founders Row -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto mb-12">
+      {founders.map((member, index) => (
+        <div class="team-card team-card-founder bg-white rounded-xl overflow-hidden border-2 border-gray-200 hover:border-green transition-all fade-in-section" style={`animation-delay: ${index * 0.1}s`}>
+          <div class="aspect-square overflow-hidden bg-gray-100">
+            <img 
+              src={member.placeholder}
+              alt={member.name}
+              class="w-full h-full object-cover team-image"
+              loading="lazy"
+              onerror="this.src='/images/team/placeholder.jpg'"
+            />
+          </div>
+          <div class="p-8">
+            <h3 class="font-display text-2xl font-bold text-navy mb-2">{member.name}</h3>
+            <p class="text-green font-semibold mb-4">{member.title}</p>
+            <p class="text-gray-600 leading-relaxed">{member.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Leadership & Growth Team Row -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      {team.map((member, index) => (
+        <div class="team-card bg-white rounded-xl overflow-hidden border-2 border-gray-200 hover:border-green transition-all fade-in-section" style={`animation-delay: ${(index + 2) * 0.1}s`}>
+          <div class="aspect-square overflow-hidden bg-gray-100">
+            <img 
+              src={member.placeholder}
+              alt={member.name}
+              class="w-full h-full object-cover team-image"
+              loading="lazy"
+              onerror="this.src='/images/team/placeholder.jpg'"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-xl font-bold text-navy mb-2">{member.name}</h3>
+            <p class="text-green font-semibold mb-3 text-sm">{member.title}</p>
+            <p class="text-gray-600 text-sm leading-relaxed">{member.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .team-card {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .team-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(47, 164, 79, 0.12), 0 0 0 2px rgba(47, 164, 79, 0.1);
+  }
+  
+  .team-card-founder {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+  
+  .team-card-founder:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 32px rgba(47, 164, 79, 0.15), 0 0 0 2px rgba(47, 164, 79, 0.15);
+  }
+  
+  .team-image {
+    transition: transform 0.3s ease;
+  }
+  
+  .team-card:hover .team-image {
+    transform: scale(1.05);
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .team-card,
+    .team-card:hover,
+    .team-image {
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+  
+  /* Mobile optimization */
+  @media (max-width: 768px) {
+    .team-card:hover {
+      transform: translateY(-4px);
+    }
+    
+    .team-card-founder:hover {
+      transform: translateY(-4px);
+    }
+  }
+</style>
